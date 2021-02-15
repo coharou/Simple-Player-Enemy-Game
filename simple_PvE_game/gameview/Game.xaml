@@ -1,0 +1,228 @@
+﻿<Window x:Class="simple_PvE_game.gameview.Game"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:simple_PvE_game.gameview"
+        mc:Ignorable="d"
+        Title="PvE -- Game" Height="890" Width="800" Background="AliceBlue" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style TargetType="Label" x:Key="lbl_Skills_Header">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="FontSize" Value="28"></Setter>
+            <Setter Property="FontFamily" Value="Serif"></Setter>
+            <Setter Property="Padding" Value="5"></Setter>
+            <Setter Property="Margin" Value="2"></Setter>
+            <Setter Property="Foreground" Value="#E4EDFE"></Setter>
+        </Style>
+        <Style TargetType="Label" x:Key="lbl_Skill_Name" BasedOn="{StaticResource lbl_Skills_Header}">
+            <Setter Property="FontSize" Value="21"></Setter>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="blk_Skill_Value">
+            <Setter Property="FontSize" Value="16"></Setter>
+            <Setter Property="FontFamily" Value="Serif"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="TextWrapping" Value="Wrap"></Setter>
+            <Setter Property="Foreground" Value="#E4EDFE"></Setter>
+            <Setter Property="Margin" Value="0, 10"></Setter>
+            <Setter Property="Background" Value="#5D6570"></Setter>
+            <Setter Property="Padding" Value="7"></Setter>
+        </Style>
+        <Style TargetType="Button" x:Key="btn_windows">
+            <Setter Property="Padding" Value="8"></Setter>
+            <Setter Property="Margin" Value="7"></Setter>
+            <Setter Property="FontSize" Value="16"></Setter>
+            <Setter Property="FontFamily" Value="Serif"></Setter>
+            <Setter Property="Background" Value="PaleGreen"></Setter>
+            <Setter Property="Foreground" Value="#4E555E"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="10" Background="#4E555E">
+        <StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1.1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1.80*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel
+                    Grid.Column="0">
+                    <Label 
+                        Style="{StaticResource lbl_Skills_Header}">
+                        Player Health
+                    </Label>
+                    <Label 
+                        Style="{StaticResource lbl_Skill_Name}">
+                        Health
+                    </Label>
+                    <TextBlock 
+                        Style="{StaticResource blk_Skill_Value}"
+                        Text="{Binding Player.Health}">
+                    </TextBlock>
+                    <Label 
+                        Style="{StaticResource lbl_Skills_Header}">
+                        Player Skills
+                    </Label>
+                    <Label 
+                        Style="{StaticResource lbl_Skill_Name}">
+                        Strength
+                    </Label>
+                    <TextBlock 
+                        Style="{StaticResource blk_Skill_Value}"
+                        Text="{Binding Player.Strength}">
+                    </TextBlock>
+                    <Label 
+                        Style="{StaticResource lbl_Skill_Name}">
+                        Defense
+                    </Label>
+                    <TextBlock 
+                        Style="{StaticResource blk_Skill_Value}"
+                        Text="{Binding Player.Defense}">
+                    </TextBlock>
+                    <Label 
+                        Style="{StaticResource lbl_Skill_Name}">
+                        Precision
+                    </Label>
+                    <TextBlock 
+                        Style="{StaticResource blk_Skill_Value}"
+                        Text="{Binding Player.Precision}">
+                    </TextBlock>
+                    <Label 
+                        Style="{StaticResource lbl_Skill_Name}">
+                        Agility
+                    </Label>
+                    <TextBlock 
+                        Style="{StaticResource blk_Skill_Value}"
+                        Text="{Binding Player.Agility}">
+                    </TextBlock>
+                    <Label 
+                        Style="{StaticResource lbl_Skill_Name}">
+                        Luck
+                    </Label>
+                    <TextBlock 
+                        Style="{StaticResource blk_Skill_Value}"
+                        Text="{Binding Player.Luck}">
+                    </TextBlock>
+                    <Label 
+                        Style="{StaticResource lbl_Skill_Name}"
+                        Content="{Binding Player.Weapon.Name}">
+                    </Label>
+                </StackPanel>
+                <StackPanel
+                    Grid.Column="1">
+                    <Label 
+                        Style="{StaticResource lbl_Skills_Header}">
+                        Enemy Health
+                    </Label>
+                    <Label 
+                        Style="{StaticResource lbl_Skill_Name}">
+                        Health
+                    </Label>
+                    <TextBlock 
+                        Style="{StaticResource blk_Skill_Value}"
+                        Text="{Binding Enemy.Health}">
+                    </TextBlock>
+                    <Label 
+                        Style="{StaticResource lbl_Skills_Header}">
+                        Enemy Skills
+                    </Label>
+                    <Label 
+                        Style="{StaticResource lbl_Skill_Name}">
+                        Strength
+                    </Label>
+                    <TextBlock 
+                        Style="{StaticResource blk_Skill_Value}"
+                        Text="{Binding Enemy.Strength}">
+                    </TextBlock>
+                    <Label 
+                        Style="{StaticResource lbl_Skill_Name}">
+                        Defense
+                    </Label>
+                    <TextBlock 
+                        Style="{StaticResource blk_Skill_Value}"
+                        Text="{Binding Enemy.Defense}">
+                    </TextBlock>
+                    <Label 
+                        Style="{StaticResource lbl_Skill_Name}">
+                        Precision
+                    </Label>
+                    <TextBlock 
+                        Style="{StaticResource blk_Skill_Value}"
+                        Text="{Binding Enemy.Precision}">
+                    </TextBlock>
+                    <Label 
+                        Style="{StaticResource lbl_Skill_Name}">
+                        Agility
+                    </Label>
+                    <TextBlock 
+                        Style="{StaticResource blk_Skill_Value}"
+                        Text="{Binding Enemy.Agility}">
+                    </TextBlock>
+                    <Label 
+                        Style="{StaticResource lbl_Skill_Name}">
+                        Luck
+                    </Label>
+                    <TextBlock 
+                        Style="{StaticResource blk_Skill_Value}"
+                        Text="{Binding Enemy.Luck}">
+                    </TextBlock>
+                    <Label 
+                        Style="{StaticResource lbl_Skill_Name}"
+                        Content="{Binding Enemy.Weapon.Name}">
+                    </Label>
+                </StackPanel>
+                <StackPanel
+                    Grid.Column="2">
+                    <Label 
+                        Content="Current Turn" 
+                        Style="{StaticResource lbl_Skill_Name}">
+                    </Label>
+                    <Label 
+                        Content="{Binding Gamestate.Turns}" 
+                        Style="{StaticResource lbl_Skill_Name}">
+                    </Label>
+                    <ScrollViewer 
+                        VerticalScrollBarVisibility="Visible" 
+                        CanContentScroll ="True" 
+                        Height="586" Margin="10,0"
+                        MinWidth="300">
+                        <TextBlock 
+                            Text="{Binding Gamestate.GameMessage}" 
+                            Style="{StaticResource blk_Skill_Value}" Margin="0" Width="308">
+                        </TextBlock>
+                    </ScrollViewer>
+                </StackPanel>
+            </Grid>
+            <StackPanel Margin="0, 20, 0, 0">
+                <Label Style="{StaticResource lbl_Skills_Header}">Player Moves</Label>
+            </StackPanel>
+            <StackPanel 
+                Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                Margin="10">
+                <Button 
+                    Style="{StaticResource btn_windows}"
+                    Content="{Binding Player.Weapon.Move}" 
+                    IsEnabled="{Binding Gamestate.CanPlayerAttack}"
+                    Click="ClickedMove" 
+                    Tag="{Binding Player.Weapon.Name}">
+                </Button>
+                <Button 
+                    Style="{StaticResource btn_windows}"
+                    Content="{Binding Player.iWeapon.Move}" 
+                    IsEnabled="{Binding Gamestate.CanPlayerAttack}"
+                    Click="ClickedMove" 
+                    Tag="{Binding Player.iWeapon.Name}">
+                </Button>
+                <Button 
+                    Style="{StaticResource btn_windows}"
+                    Content="{Binding Player.iiWeapon.Move}" 
+                    IsEnabled="{Binding Gamestate.CanPlayerAttack}"
+                    Click="ClickedMove" 
+                    Tag="{Binding Player.iiWeapon.Name}">
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
